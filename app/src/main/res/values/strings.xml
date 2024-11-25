@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">RandomCatFacts</string>
+    <string name="add_cat">Adicionar Gato</string>
+</resources>
