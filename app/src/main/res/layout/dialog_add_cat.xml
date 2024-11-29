@@ -1,6 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp">
 
+    <!-- Campo de texto para o nome do gato -->
+    <EditText
+        android:id="@+id/catNameEditText"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:hint="Nome do Gato"
+        android:inputType="text" />
+
+    <!-- Botão para salvar o gato -->
+    <Button
+        android:id="@+id/saveCatButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Salvar Gato" />
 </LinearLayout>

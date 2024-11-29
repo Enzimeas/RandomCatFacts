@@ -6,15 +6,12 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.room.Room
 import com.example.randomcatfacts.R
-import com.example.randomcatfacts.data.database.Cat
 import com.example.randomcatfacts.data.database.CatDatabase
 import com.example.randomcatfacts.ui.adapters.CatAdapter
-import kotlinx.coroutines.launch
 
 class MyCatsFragment : Fragment() {
     private lateinit var database: CatDatabase

@@ -7,14 +7,17 @@
     android:padding="16dp"
     android:gravity="center">
 
+    <!-- Fato do Gato -->
     <TextView
         android:id="@+id/catFactTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Fato aleatório"
         android:textSize="18sp"
-        android:gravity="center" />
+        android:gravity="center"
+        android:layout_marginBottom="16dp" /> <!-- Margem abaixo do TextView -->
 
+    <!-- Botão para Carregar Fato -->
     <Button
         android:id="@+id/loadCatFactButton"
         android:layout_width="match_parent"

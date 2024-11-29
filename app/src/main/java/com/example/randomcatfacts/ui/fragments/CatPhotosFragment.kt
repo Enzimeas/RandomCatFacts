@@ -16,7 +16,6 @@ import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import retrofit2.http.GET
 import com.example.randomcatfacts.network.CatImage
 import com.example.randomcatfacts.data.api.CatApi
 

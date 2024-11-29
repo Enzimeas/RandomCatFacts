@@ -7,13 +7,16 @@
     android:gravity="center"
     android:padding="16dp">
 
+    <!-- Imagem do Gato -->
     <ImageView
         android:id="@+id/catImageView"
         android:layout_width="300dp"
         android:layout_height="300dp"
         android:scaleType="centerCrop"
-        android:contentDescription="Foto de gato" />
+        android:contentDescription="Foto de gato"
+        android:layout_marginBottom="16dp" />
 
+    <!-- Botão para Carregar Foto -->
     <Button
         android:id="@+id/loadCatPhotoButton"
         android:layout_width="match_parent"
