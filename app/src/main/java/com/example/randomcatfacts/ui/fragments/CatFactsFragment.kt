@@ -16,6 +16,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 class CatFactsFragment : Fragment() {
+
     private val BASE_URL = "https://cat-fact.herokuapp.com/"
 
     override fun onCreateView(
@@ -23,23 +24,30 @@ class CatFactsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_cat_facts, container, false)
+
         val catFactTextView = view.findViewById<TextView>(R.id.catFactTextView)
         val loadCatFactButton = view.findViewById<Button>(R.id.loadCatFactButton)
 
-        loadCatFactButton.setOnClickListener {
-            val retrofit = Retrofit.Builder()
-                .baseUrl(BASE_URL)
-                .addConverterFactory(GsonConverterFactory.create())
-                .build()
+        // Configuração do Retrofit
+        val retrofit = Retrofit.Builder()
+            .baseUrl(BASE_URL)
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
 
-            val api = retrofit.create(CatFactsApi::class.java)
+        val api = retrofit.create(CatFactsApi::class.java)
+
+        loadCatFactButton.setOnClickListener {
             api.getRandomCatFact().enqueue(object : Callback<CatFact> {
                 override fun onResponse(call: Call<CatFact>, response: Response<CatFact>) {
-                    catFactTextView.text = response.body()?.text
+                    if (response.isSuccessful && response.body() != null) {
+                        catFactTextView.text = response.body()?.text
+                    } else {
+                        Toast.makeText(context, "Erro ao carregar fato", Toast.LENGTH_SHORT).show()
+                    }
                 }
 
                 override fun onFailure(call: Call<CatFact>, t: Throwable) {
-                    Toast.makeText(context, "Erro ao carregar fato", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(context, "Erro ao carregar fato: ${t.message}", Toast.LENGTH_LONG).show()
                 }
             })
         }
